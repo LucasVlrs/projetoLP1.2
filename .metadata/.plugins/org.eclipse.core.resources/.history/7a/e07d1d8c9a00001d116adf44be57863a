@@ -1,0 +1,32 @@
+package application;
+import java.util.ArrayList;
+
+public class Repositorio {	
+	
+	ArrayList<Agencia> listaAgencia;
+	ArrayList<Endereco> listaEnderecos;
+	
+	public Repositorio() {
+		listaAgencia = new ArrayList <Agencia>();
+		
+	}
+	
+	public void adicionar(Agencia agencia) {
+		if ( agencia != null )
+			listaAgencia.add(agencia);
+	}
+	
+	public ArrayList<Agencia> getAgencias(){
+		return listaAgencia;
+	}
+	
+	public void adicionarEndereco(Endereco endereco) {
+		if ( endereco != null )
+			listaAgencia.add(endereco);
+	}
+	
+	public ArrayList<Endereco> getEnderecos(){
+		return listaEnderecos;
+	}
+	
+}

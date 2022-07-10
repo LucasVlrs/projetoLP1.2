@@ -1,0 +1,32 @@
+package application;
+	import java.util.Scanner;
+	import java.util.ArrayList;
+
+public class Repositorio {	
+	
+	Scanner scanner = new Scanner(System.in);
+	ArrayList<Agencia> agencia;
+	
+	public Repositorio() {
+		agencia = new ArrayList <Agencia>();
+		
+	}
+	
+	public void adicionar() {
+		
+	}
+	
+	public void remover() {
+		
+	}
+	
+	public void alterar() {
+		
+	}
+	
+	public void relatorio() {
+		
+	}
+}
+
+// adicionar, remover, alterar, relatorio

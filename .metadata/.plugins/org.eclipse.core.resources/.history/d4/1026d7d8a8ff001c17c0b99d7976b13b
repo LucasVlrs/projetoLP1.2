@@ -1,0 +1,17 @@
+package application;
+
+public abstract class Agencia {
+		
+	protected String nome_do_gerente;
+	protected String CNPJ;
+	protected String email;
+	protected Endereco endereco;
+	
+	
+	public Agencia(String nome_do_gerente, String CNPJ, String email, Endereco endereco) {
+		this.nome_do_gerente = (nome_do_gerente != null) ? nome_do_gerente: "";
+	}
+	public void relarotio() {
+		
+	}
+}

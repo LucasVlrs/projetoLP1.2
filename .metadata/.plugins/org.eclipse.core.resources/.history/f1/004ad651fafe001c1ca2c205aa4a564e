@@ -1,0 +1,72 @@
+package application;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+
+public class ControleTelaAdicionar implements Initializable{
+
+	Repositorio BD = new Repositorio();
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+	}
+	
+	@FXML
+	private TextField tfGerente;
+	
+	@FXML
+	private TextField	tfCNPJ;
+	
+	@FXML
+	private TextField tfEmail;
+	
+	@FXML
+	private TextField tfELogradouro;
+	
+	@FXML
+	private TextField tfENumero;
+	
+	@FXML
+	private TextField tfECEP;
+	
+	
+	public void ClickedConfirmar() {
+		
+		String nome_do_gerente = tfGerente.getText();
+		
+	}
+	//-----------Controle de telas----------------//
+	
+	@FXML
+	protected void ClickAddPage(ActionEvent event) {
+		Main.switchMudaTelas(1);
+	
+	}
+	
+	@FXML
+	protected void ClickRemovePage(ActionEvent event) {
+		Main.switchMudaTelas(2);
+	
+	}
+	
+	@FXML
+	protected void ClickAlterarPage(ActionEvent event) {
+		Main.switchMudaTelas(3);
+
+	}
+	
+	@FXML 
+	protected void ClickRelatorioPage(ActionEvent event) {
+		Main.switchMudaTelas(4);
+	}
+
+}
+
+/*tfGerente
+ * */

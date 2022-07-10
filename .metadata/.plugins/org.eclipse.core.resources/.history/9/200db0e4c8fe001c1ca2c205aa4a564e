@@ -1,0 +1,30 @@
+package application;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
+public abstract class abstractControle {
+	
+	@FXML
+	protected void ClickAddPage(ActionEvent event) {
+		Main.switchMudaTelas(1);
+		System.out.println("Clicou add");
+	}
+	
+	@FXML
+	protected void ClickRemovePage(ActionEvent event) {
+		Main.switchMudaTelas(2);
+		System.out.println("Clicou remover");
+	}
+	
+	@FXML
+	protected void ClickAlterarPage(ActionEvent event) {
+		Main.switchMudaTelas(3);
+		System.out.println("Clicou Alterar");
+	}
+	
+	@FXML 
+	protected void ClickRelatorioPage(ActionEvent event) {
+		Main.switchMudaTelas(4);
+	}
+}

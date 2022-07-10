@@ -1,0 +1,16 @@
+package application;
+
+public class Agencia {
+		
+	protected String nome_do_gerente;
+	protected String CNPJ;
+	//protected Endereco endereco;
+	//protected String email;
+	
+	public Agencia(String nome_do_gerente, String CNPJ) {
+		
+	}
+	public void relarotio() {
+		
+	}
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="363.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleTelaAdicionar">
+   <children>
+   	<Label fx:id="tituloAdd" layoutX="11.0" layoutY="29.0" prefHeight="34.0" prefWidth="118.0" text="Adicionar" />
+      <Button fx:id="ConfirmButton" layoutX="283.0" layoutY="403.0" mnemonicParsing="false" onAction="#ClickedConfirmar" text="Confirmar" />
+      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Ações">
+            <items>
+              <MenuItem fx:id="GoToAddPage" mnemonicParsing="false" onAction="#ClickAddPage" text="Adicionar" />
+                  <MenuItem fx:id="GoToRelatorioPage1" mnemonicParsing="false" onAction="#ClickRelatorioPage" text="Relatório" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      
+      <TextField fx:id="tfGerente" layoutX="70.0" layoutY="78.0" />
+      <TextField fx:id="tfCNPJ" layoutX="71.0" layoutY="118.0" />
+      <TextField fx:id="tfENumero" layoutX="85.0" layoutY="255.0" />
+      <TextField fx:id="tfELogradouro" layoutX="85.0" layoutY="215.0" />
+      <Label layoutX="17.0" layoutY="82.0" text="Gerente" />
+      <Label layoutX="33.0" layoutY="122.0" text="CNPJ" />
+      <Label layoutX="19.0" layoutY="188.0" text="Endereço: " />
+      <Label layoutX="33.0" layoutY="210.0" />
+      <Label layoutX="17.0" layoutY="219.0" text="Logradouro" />
+      <Label layoutX="32.0" layoutY="259.0" text="Número" />
+      <TextField fx:id="tfECEP" layoutX="85.0" layoutY="295.0" />
+      <Label layoutX="54.0" layoutY="299.0" text="CEP" />
+      <TextField fx:id="tfEmail" layoutX="71.0" layoutY="155.0" />
+      <Label layoutX="30.0" layoutY="159.0" text="e-mail" />
+   </children>
+</AnchorPane>

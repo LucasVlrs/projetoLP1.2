@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleTelaRelatorio">
+   <children>
+      <Label fx:id="tituloRemove" layoutX="11.0" layoutY="29.0" prefHeight="34.0" prefWidth="118.0" text="Relatório" />
+      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Ações">
+               <items>
+                  <MenuItem fx:id="GoToAddPage" mnemonicParsing="false" onAction="#ClickAddPage" text="Adicionar" />
+                  <MenuItem fx:id="GoToRemovePage" mnemonicParsing="false" onAction="#ClickRemovePage" text="Remover" />
+                  <MenuItem fx:id="GoToAlterarpage" mnemonicParsing="false" onAction="#ClickAlterarPage" text="Alterar" />
+                  <MenuItem fx:id="GoToRelatorioPage1" mnemonicParsing="false" onAction="#ClickRelatorioPage" text="Relatório" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      
+      <Button fx:id="btnPesquisar" layoutX="546.0" layoutY="33.0" mnemonicParsing="false" onAction="#ClicouPesquisar" text="Atualizar" />
+      <Button fx:id="btRemover" layoutX="546.0" layoutY="505.0" mnemonicParsing="false" onAction="#ClicouRemover" text="Remover" />
+      <Button fx:id="btAlterar" layoutX="483.0" layoutY="505.0" mnemonicParsing="false" onAction="#ClicouAlterar" text="Alterar" />
+      <TextField fx:id="txtCNPJ" layoutX="70.0" layoutY="388.0" onAction="#ClicouTbAgencia" />
+      <TextField fx:id="txtGerente" layoutX="70.0" layoutY="440.0" onAction="#ClicouTbAgencia" />
+      <TextField fx:id="txtEmail" layoutX="70.0" layoutY="492.0" onAction="#ClicouTbAgencia" />
+      <TextField fx:id="txtLogradouro" layoutX="301.0" layoutY="388.0" onAction="#ClicouTbAgencia" />
+      <TextField fx:id="txtNumero" layoutX="301.0" layoutY="440.0" onAction="#ClicouTbAgencia" />
+      <TextField fx:id="txtCEP" layoutX="301.0" layoutY="492.0" onAction="#ClicouTbAgencia" />
+      <Label layoutX="29.0" layoutY="392.0" text="CNPJ" />
+      <Label layoutX="22.0" layoutY="444.0" text="Gerente" />
+      <Label layoutX="26.0" layoutY="496.0" text="e-mail" />
+      <Label layoutX="233.0" layoutY="392.0" text="logradouro" />
+      <Label layoutX="241.0" layoutY="444.0" text="Número" />
+      <Label layoutX="252.0" layoutY="496.0" text="CEP" />
+      <TableView fx:id="tbAgencias" layoutX="7.0" layoutY="63.0" onMouseClicked="#ClicouTbAgencia" prefHeight="316.0" prefWidth="616.0">
+        <columns>
+          <TableColumn fx:id="colCNPJ" prefWidth="83.19995880126953" text="CNPJ" />
+          <TableColumn fx:id="colGerente" prefWidth="200.00001525878906" text="Gerente" />
+            <TableColumn fx:id="colEndereco" minWidth="0.0" prefWidth="206.4000244140625" text="Endereço" />
+            <TableColumn fx:id="colEmail" prefWidth="126.4000244140625" text="e-mail" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

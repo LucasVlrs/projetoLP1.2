@@ -1,0 +1,12 @@
+INDEX VERSION 1.131+C:\Users\lucka\OneDrive\Desktop\ProjetoLP1\.metadata\.plugins\org.eclipse.jdt.core
+4211683624.index
+1865797976.index
+257856079.index
+1779800447.index
+3273363986.index
+2136213803.index
+133953552.index
+2995120686.index
+3961248841.index
+1033166678.index
+929381899.index

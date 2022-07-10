@@ -1,0 +1,13 @@
+package application;
+
+public class Internacional extends Agencia{
+	
+	public Internacional(String nome_do_gerente, String CNPJ) {
+		super(nome_do_gerente, CNPJ);
+		// TODO Auto-generated constructor stub
+	}
+
+	protected String country;
+	
+	
+}

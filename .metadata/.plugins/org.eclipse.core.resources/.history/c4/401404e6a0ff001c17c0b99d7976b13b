@@ -1,0 +1,12 @@
+package application;
+
+public class Internacional extends Agencia{
+	
+	public Internacional(String nome_do_gerente, String CNPJ, String email) {
+		super(nome_do_gerente, CNPJ, email);
+	}
+
+	protected String country;
+	
+	
+}
