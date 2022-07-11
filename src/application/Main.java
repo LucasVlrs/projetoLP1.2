@@ -26,7 +26,7 @@ public class Main extends Application {
 
 //			Image icone = new Image("Brasil_Tour_logo_2");
 //			stage.getIcons().add(icone);	
-
+//Marcar dia no discord para Refatoração 
 			Parent parentScene1 = Scene1.load();
 			Parent parentScene4 = Scene4.load();
 
