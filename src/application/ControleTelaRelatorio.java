@@ -1,17 +1,22 @@
 package application;
 
-import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -98,8 +103,23 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 		String CNPJ = txtCNPJ.getText();
 		for (int i = 0; i < Main.repositorio.getAgencias().size(); i++)
 			if (CNPJ.equals(Main.repositorio.getAgencias().get(i).getCNPJ())) {
-				Main.repositorio.getAgencias().remove(i);
-				System.out.println("Agencia de CNPJ: " + CNPJ + " removida");
+				// Adicionando confirmação de exclusão
+				Alert alertDelete = new Alert(Alert.AlertType.CONFIRMATION);
+				alertDelete.setTitle("Excluir Agência?");
+				alertDelete.setContentText("Você tem certeza que deseja Excluir?");
+				// Capturando a resposta do Usuário
+				Optional<ButtonType> result = alertDelete.showAndWait();
+				if (result.get() == ButtonType.OK) {
+					Main.repositorio.getAgencias().remove(i);
+					System.out.println("Agencia de CNPJ: " + CNPJ + " removida");
+					JOptionPane.showMessageDialog(null, "Agencia de CNPJ: " + CNPJ + " foi removida com Sucesso");
+					Main.repositorio.getAgencias().remove(i);
+				}
+
+				// System.out.println("Agencia de CNPJ: " + CNPJ + " removida");
+				else {
+					JOptionPane.showMessageDialog(null, "Agencia de CNPJ: " + CNPJ + " não foi removida");
+				}
 				break;
 			}
 	}
