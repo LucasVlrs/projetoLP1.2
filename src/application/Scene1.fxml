@@ -1,41 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="363.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleTelaAdicionar">
+
+<Group xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleTelaAdicionar">
    <children>
-   	<Label fx:id="tituloAdd" layoutX="11.0" layoutY="29.0" prefHeight="34.0" prefWidth="118.0" text="Adicionar" />
-      <Button fx:id="ConfirmButton" layoutX="283.0" layoutY="403.0" mnemonicParsing="false" onAction="#ClickedConfirmar" text="Confirmar" />
-      <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Ações">
-            <items>
-              <MenuItem fx:id="GoToAddPage" mnemonicParsing="false" onAction="#ClickAddPage" text="Adicionar" />
-                  <MenuItem fx:id="GoToRelatorioPage1" mnemonicParsing="false" onAction="#ClickRelatorioPage" text="Relatório" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      
-      <TextField fx:id="tfGerente" layoutX="70.0" layoutY="78.0" />
-      <TextField fx:id="tfCNPJ" layoutX="71.0" layoutY="118.0" />
-      <TextField fx:id="tfENumero" layoutX="85.0" layoutY="255.0" />
-      <TextField fx:id="tfELogradouro" layoutX="85.0" layoutY="215.0" />
-      <Label layoutX="17.0" layoutY="82.0" text="Gerente" />
-      <Label layoutX="33.0" layoutY="122.0" text="CNPJ" />
-      <Label layoutX="19.0" layoutY="188.0" text="Endereço: " />
-      <Label layoutX="33.0" layoutY="210.0" />
-      <Label layoutX="17.0" layoutY="219.0" text="Logradouro" />
-      <Label layoutX="32.0" layoutY="259.0" text="Número" />
-      <TextField fx:id="tfECEP" layoutX="85.0" layoutY="295.0" />
-      <Label layoutX="54.0" layoutY="299.0" text="CEP" />
-      <TextField fx:id="tfEmail" layoutX="71.0" layoutY="155.0" />
-      <Label layoutX="30.0" layoutY="159.0" text="e-mail" />
+      <ImageView fitHeight="368.0" fitWidth="478.0">
+         <image>
+            <Image url="@../../../../../../Users/Mariana/Downloads/COQUEIRO2.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="478.0">
+         <children>
+            <Group layoutX="173.0" layoutY="25.0">
+               <children>
+               	<Label fx:id="tituloAdd" layoutX="35.0" prefHeight="34.0" prefWidth="80.0" text="ADICIONAR" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ConfirmButton" layoutX="35.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClickedConfirmar" text="Confirmar" />
+                  
+                        <TextField fx:id="tfGerente" layoutY="44.0" />
+                  <TextField fx:id="tfCNPJ" layoutY="87.0" />
+                  <TextField fx:id="tfENumero" layoutY="238.0" />
+                  <TextField fx:id="tfELogradouro" layoutY="196.0" />
+                  <Label layoutY="25.0" text="Gerente" />
+                  <Label layoutY="71.0" text="CNPJ" />
+                  <Label layoutY="163.0" text="Endereço: " />
+                  <Label layoutY="176.0" text="Logradouro" />
+                  <Label layoutY="221.0" text="Número" />
+                  <TextField fx:id="tfECEP" layoutY="283.0" />
+                  <Label layoutY="267.0" text="CEP" />
+                  <TextField fx:id="tfEmail" layoutY="132.0" />
+                  <Label layoutY="115.0" text="e-mail" />
+               </children>
+            </Group>
+            <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Ações">
+                  <items>
+                    <MenuItem fx:id="GoToAddPage" mnemonicParsing="false" onAction="#ClickAddPage" text="Adicionar" />
+                        <MenuItem fx:id="GoToRelatorioPage1" mnemonicParsing="false" onAction="#ClickRelatorioPage" text="Relatório" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <Label layoutX="33.0" layoutY="210.0" />
+            <ImageView fitHeight="88.0" fitWidth="200.0" layoutX="-10.0" layoutY="13.0">
+               <image>
+                  <Image url="@../../../../../../Users/Mariana/Downloads/Brasil_Tour_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</Group>
