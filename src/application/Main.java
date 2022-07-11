@@ -14,22 +14,22 @@ public class Main extends Application {
 	private static Stage primaryStage; // static para ser inserida na classe sem exigir objeto
 
 	public static Repositorio repositorio;
-	
+
 	@Override
 	public void start(Stage stage) throws Exception {
 		try {
 			FXMLLoader Scene1 = new FXMLLoader(getClass().getResource("Scene1.fxml"));
 			FXMLLoader Scene4 = new FXMLLoader(getClass().getResource("Scene4.fxml"));
-			
+
 			primaryStage = stage;
 			stage.setTitle("Brasil Tour Agências");
-			
+
 //			Image icone = new Image("Brasil_Tour_logo_2");
 //			stage.getIcons().add(icone);	
-			
+
 			Parent parentScene1 = Scene1.load();
 			Parent parentScene4 = Scene4.load();
-			
+
 			sceneScene1 = new Scene(parentScene1);
 			sceneScene4 = new Scene(parentScene4);
 
@@ -38,26 +38,26 @@ public class Main extends Application {
 			primaryStage.setScene(sceneScene1);
 			primaryStage.show();
 
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
-		
+
 		repositorio = new Repositorio();
 		launch(args);
 	}
-	
-	public static void switchMudaTelas(int opcao){
-		switch(opcao) {
+
+	public static void switchMudaTelas(int opcao) {
+		switch (opcao) {
 		case 1:
 			primaryStage.setScene(sceneScene1);
 			break;
 		case 4:
 			primaryStage.setScene(sceneScene4);
 			break;
-		
+
 		}
 	}
 }

@@ -1,15 +1,16 @@
 package application;
 
 public class Endereco {
-	private String logradouro, CEP;
-	private int numero;
-	
-	public Endereco(String logradouro, int numero, String CEP ){
-		 this.logradouro = logradouro;
-		 this.numero = numero;
-		 this.CEP = CEP;
+	protected String logradouro, CEP;
+	protected int numero;
+
+	public Endereco(String logradouro, int numero, String CEP) {
+		this.logradouro = logradouro;
+		this.numero = numero;
+		this.CEP = CEP;
+
 	}
-	
+
 	public String getLogradouro() {
 		return logradouro;
 	}
@@ -37,5 +38,5 @@ public class Endereco {
 	public static String valueOf(Endereco endereco) {
 		return (endereco == null) ? "--------" : endereco.toString();
 	}
-	
+
 }
