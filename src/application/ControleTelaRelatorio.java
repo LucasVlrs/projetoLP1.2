@@ -1,5 +1,6 @@
 package application;
 
+import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -7,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,7 +18,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -33,7 +34,7 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 	@FXML
 	private TableColumn<Agencia, String> colCNPJ;
 	@FXML
-	private TableColumn<Agencia, Endereco> colEndereco, colLogradouro, colNumero, colCEP;
+	private TableColumn<Agencia, String> colEndereco, colLogradouro, colNumero, colCEP;
 	@FXML
 	private TableColumn<Agencia, String> colEmail;
 
@@ -42,26 +43,43 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 
 	}
 
+	public void ClicouPesquisar(ActionEvent event) {
+		if(tfPesquisarAgencia.getText().equals("")) {
+			preencherTabela(Main.repositorio.getAgencias());
+		}else {
+			ArrayList<Agencia> pesq = new ArrayList<>();
+				for(Agencia a: Main.repositorio.getAgencias()) {
+					if( a.getCNPJ().equals(tfPesquisarAgencia.getText()))
+						pesq.add(a);
+				}
+				preencherTabela(pesq);
+		}
+	}
+
 	@FXML
-	protected void ClicouPesquisar(ActionEvent event) {
+	protected void ClicouAtualizar(ActionEvent event) {
 		preencherTabela(Main.repositorio.getAgencias());
 	}
 
 	private void preencherTabela(ArrayList<Agencia> armz) {
 		ObservableList<Agencia> data = FXCollections.observableArrayList(armz);
 
+		// exibir dados de objetos na tabela
 		colGerente.setCellValueFactory(new PropertyValueFactory<>("nome_do_gerente"));
 		colCNPJ.setCellValueFactory(new PropertyValueFactory<>("CNPJ"));
 		colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-		colEndereco.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-		colLogradouro.setCellValueFactory(new PropertyValueFactory<>("logradouro"));
-		colNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
-		colCEP.setCellValueFactory(new PropertyValueFactory<>("CEP"));
+
+		// exibir o endereco na tabela
+		colLogradouro
+				.setCellValueFactory(dado -> new SimpleStringProperty(dado.getValue().getEndereco().getLogradouro()));
+		colNumero.setCellValueFactory(
+				dado -> new SimpleStringProperty(String.valueOf(dado.getValue().getEndereco().getNumero())));
+		colCEP.setCellValueFactory(dado -> new SimpleStringProperty(dado.getValue().getEndereco().getCEP()));
 
 		tbAgencias.setItems(data);
 	}
 
-	public void ClicouTbAgencia(MouseEvent event) {
+	public void ClicouTbAgencia(MouseEvent event) { // quando clica no item da tb, joga os comp para o tf
 		int i = tbAgencias.getSelectionModel().getSelectedIndex();
 
 		Agencia agencia = (Agencia) tbAgencias.getItems().get(i);
@@ -70,13 +88,13 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 		txtGerente.setText(agencia.getNome_do_gerente());
 		txtEmail.setText(agencia.getEmail());
 
-		txtLogradouro.setText(Endereco.valueOf(agencia.getEndereco()));
-		txtNumero.setText(String.valueOf(agencia.getEndereco()));
-		txtCEP.setText(Endereco.valueOf(agencia.getEndereco()));
+		txtLogradouro.setText((agencia.endereco.getLogradouro()));
+		txtNumero.setText(String.valueOf(agencia.endereco.getNumero()));
+		txtCEP.setText((agencia.endereco.getCEP()));
 
 	}
 
-	public void ClicouAlterar(ActionEvent event) {
+	public void ClicouAlterar(ActionEvent event) { // altera os valores do objeto em quest√£o #nn pode mudar cnpj#
 
 		String CNPJ = txtCNPJ.getText();
 		String nome_do_gerente = txtGerente.getText();
@@ -94,34 +112,39 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 				Main.repositorio.getAgencias().get(i).getEndereco().setLogradouro(logradouro);
 				Main.repositorio.getAgencias().get(i).getEndereco().setNumero(numero);
 				Main.repositorio.getAgencias().get(i).getEndereco().setCEP(CEP);
-				System.out.println("Altera√ß√£o feita...");
+
+				System.out.println("Alterando itens...");
+
 				break;
 			}
 	}
 
-	public void ClicouRemover(ActionEvent event) {
+	public void ClicouRemover(ActionEvent event) { // remove objetos da tabela caso o usuario confirme a opcao
+
 		String CNPJ = txtCNPJ.getText();
+
 		for (int i = 0; i < Main.repositorio.getAgencias().size(); i++)
 			if (CNPJ.equals(Main.repositorio.getAgencias().get(i).getCNPJ())) {
-				// Adicionando confirmaÁ„o de exclus„o
-				Alert alertDelete = new Alert(Alert.AlertType.CONFIRMATION);
-				alertDelete.setTitle("Excluir AgÍncia?");
-				alertDelete.setContentText("VocÍ tem certeza que deseja Excluir?");
-				// Capturando a resposta do Usu·rio
-				Optional<ButtonType> result = alertDelete.showAndWait();
-				if (result.get() == ButtonType.OK) {
+
+				// Adicionando confirmacao de exclusao
+				Alert alertDelete1 = new Alert(Alert.AlertType.CONFIRMATION);
+				alertDelete1.setTitle("Excluir Ag√™ncia?");
+				alertDelete1.setContentText("Voc√™ tem certeza que deseja Excluir?");
+
+				// Capturando a resposta do Usuario
+				Optional<ButtonType> result1 = alertDelete1.showAndWait();
+				if (result1.get() == ButtonType.OK) {
 					Main.repositorio.getAgencias().remove(i);
 					System.out.println("Agencia de CNPJ: " + CNPJ + " removida");
 					JOptionPane.showMessageDialog(null, "Agencia de CNPJ: " + CNPJ + " foi removida com Sucesso");
 					Main.repositorio.getAgencias().remove(i);
 				}
 
-				// System.out.println("Agencia de CNPJ: " + CNPJ + " removida");
 				else {
-					JOptionPane.showMessageDialog(null, "Agencia de CNPJ: " + CNPJ + " n„o foi removida");
+					JOptionPane.showMessageDialog(null, "Agencia de CNPJ: " + CNPJ + " n√£o foi removida");
+					break;
 				}
-				break;
+
 			}
 	}
-
 }

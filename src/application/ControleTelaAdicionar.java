@@ -28,7 +28,7 @@ public class ControleTelaAdicionar extends MenuBar implements Initializable {
 		String email = tfEmail.getText();
 
 		String logradouro = tfELogradouro.getText();
-		int numero = parseInt(tfENumero.getText());
+		int numero = Integer.parseInt(tfENumero.getText());
 		String CEP = tfECEP.getText();
 
 		Nacional agencia = new Nacional(nome_do_gerente, CNPJ, email, new Endereco(logradouro, numero, CEP));
@@ -45,10 +45,6 @@ public class ControleTelaAdicionar extends MenuBar implements Initializable {
 			
 		System.out.println("clicou botao adicionar");
 		
-	}
-
-	private int parseInt(String text) {
-		return 0;
 	}
 
 }

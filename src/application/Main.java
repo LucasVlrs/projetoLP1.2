@@ -1,7 +1,6 @@
 package application;
 
 import javafx.application.Application;
-// Ari alterando estilo no PC de Mari
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -25,8 +24,8 @@ public class Main extends Application {
 			primaryStage = stage;
 			stage.setTitle("Brasil Tour Agências");
 
-//			Image icone = new Image("Brasil_Tour_logo_2");
-//			stage.getIcons().add(icone);	
+			Image icone = new Image("application/BrasilTourLogo_2.png");
+			stage.getIcons().add(icone);	
 
 			Parent parentScene1 = Scene1.load();
 			Parent parentScene4 = Scene4.load();

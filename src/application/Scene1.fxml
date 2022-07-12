@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -7,17 +8,17 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <Group xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleTelaAdicionar">
    <children>
       <ImageView fitHeight="368.0" fitWidth="478.0">
          <image>
-            <Image url="@../../../../../../Users/Mariana/Downloads/COQUEIRO2.jpg" />
+            <Image url="@wallpaperTelaAdicionar.png" />
          </image>
       </ImageView>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="478.0">
@@ -29,20 +30,41 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button fx:id="ConfirmButton" layoutX="35.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClickedConfirmar" text="Confirmar" />
+                  <Button fx:id="ConfirmButton" layoutX="35.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClickedConfirmar" text="Confirmar">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <Glow />
+                     </effect></Button>
                   
-                        <TextField fx:id="tfGerente" layoutY="44.0" />
-                  <TextField fx:id="tfCNPJ" layoutY="87.0" />
-                  <TextField fx:id="tfENumero" layoutY="238.0" />
+                        <TextField fx:id="tfGerente" layoutY="44.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                  <TextField fx:id="tfCNPJ" layoutY="87.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
+                  <TextField fx:id="tfENumero" layoutY="238.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
                   <TextField fx:id="tfELogradouro" layoutY="196.0" />
                   <Label layoutY="25.0" text="Gerente" />
                   <Label layoutY="71.0" text="CNPJ" />
                   <Label layoutY="163.0" text="Endereço: " />
                   <Label layoutY="176.0" text="Logradouro" />
                   <Label layoutY="221.0" text="Número" />
-                  <TextField fx:id="tfECEP" layoutY="283.0" />
+                  <TextField fx:id="tfECEP" layoutY="283.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
                   <Label layoutY="267.0" text="CEP" />
-                  <TextField fx:id="tfEmail" layoutY="132.0" />
+                  <TextField fx:id="tfEmail" layoutY="132.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor></TextField>
                   <Label layoutY="115.0" text="e-mail" />
                </children>
             </Group>
@@ -57,9 +79,9 @@
               </menus>
             </MenuBar>
             <Label layoutX="33.0" layoutY="210.0" />
-            <ImageView fitHeight="88.0" fitWidth="200.0" layoutX="-10.0" layoutY="13.0">
+            <ImageView fitHeight="88.0" fitWidth="182.0" layoutX="-10.0" layoutY="13.0">
                <image>
-                  <Image url="@../../../../../../Users/Mariana/Downloads/Brasil_Tour_logo.png" />
+                  <Image url="@Brasil%20Tour%20logo.png" />
                </image>
             </ImageView>
          </children>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -8,10 +9,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControleTelaRelatorio">
    <children>
+      <ImageView fitHeight="676.0" fitWidth="800.0" pickOnBounds="true">
+         <image>
+            <Image url="@wallpaperTelaAdicionar.png" />
+         </image>
+      </ImageView>
       <Label fx:id="tituloRemove" layoutX="11.0" layoutY="29.0" prefHeight="34.0" prefWidth="118.0" text="Relatório" />
       <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <menus>
@@ -24,9 +33,27 @@
          </menus>
       </MenuBar>
       
-      <Button fx:id="btnPesquisar" layoutX="722.0" layoutY="33.0" mnemonicParsing="false" onAction="#ClicouPesquisar" text="Atualizar" />
-      <Button fx:id="btRemover" layoutX="722.0" layoutY="635.0" mnemonicParsing="false" onAction="#ClicouRemover" text="Remover" />
-      <Button fx:id="btAlterar" layoutX="659.0" layoutY="635.0" mnemonicParsing="false" onAction="#ClicouAlterar" text="Alterar" />
+      <Button fx:id="btnPesquisar" layoutX="722.0" layoutY="33.0" mnemonicParsing="false" onAction="#ClicouAtualizar" text="Atualizar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect></Button>
+      <Button fx:id="btRemover" layoutX="722.0" layoutY="635.0" mnemonicParsing="false" onAction="#ClicouRemover" text="Remover">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect></Button>
+      <Button fx:id="btAlterar" layoutX="659.0" layoutY="635.0" mnemonicParsing="false" onAction="#ClicouAlterar" text="Alterar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect></Button>
       <TextField fx:id="txtGerente" layoutX="246.0" layoutY="570.0" />
       <TextField fx:id="txtEmail" layoutX="246.0" layoutY="622.0" />
       <TextField fx:id="txtLogradouro" layoutX="477.0" layoutY="518.0" />
@@ -52,5 +79,7 @@
                </columns></TableColumn>
         </columns>
       </TableView>
+      <TextField fx:id="tfPesquisarAgencia" layoutX="262.0" layoutY="33.0" prefHeight="26.0" prefWidth="286.0" promptText="Pesquise uma agência pelo CNPJ..." />
+      <Button fx:id="btPesquisar" layoutX="552.0" layoutY="34.0" mnemonicParsing="false" onAction="#ClicouPesquisar" text="Pesquisar" />
    </children>
 </AnchorPane>

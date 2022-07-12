@@ -35,8 +35,4 @@ public class Endereco {
 		this.numero = numero;
 	}
 
-	public static String valueOf(Endereco endereco) {
-		return (endereco == null) ? "--------" : endereco.toString();
-	}
-
 }
