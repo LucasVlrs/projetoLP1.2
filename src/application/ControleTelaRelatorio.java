@@ -37,6 +37,8 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 	private TableColumn<Agencia, String> colEndereco, colLogradouro, colNumero, colCEP;
 	@FXML
 	private TableColumn<Agencia, String> colEmail;
+	@FXML
+	private TableColumn<Agencia, String> colPais;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -70,11 +72,11 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 		colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
 
 		// exibir o endereco na tabela
-		colLogradouro
-				.setCellValueFactory(dado -> new SimpleStringProperty(dado.getValue().getEndereco().getLogradouro()));
-		colNumero.setCellValueFactory(
-				dado -> new SimpleStringProperty(String.valueOf(dado.getValue().getEndereco().getNumero())));
+		colLogradouro.setCellValueFactory(dado -> new SimpleStringProperty(dado.getValue().getEndereco().getLogradouro()));
+		colNumero.setCellValueFactory(dado -> new SimpleStringProperty(String.valueOf(dado.getValue().getEndereco().getNumero())));
 		colCEP.setCellValueFactory(dado -> new SimpleStringProperty(dado.getValue().getEndereco().getCEP()));
+		
+		colPais.setCellValueFactory(new PropertyValueFactory<>("pais"));
 
 		tbAgencias.setItems(data);
 	}
@@ -93,9 +95,9 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 		txtCEP.setText((agencia.endereco.getCEP()));
 
 	}
-
+	
 	public void ClicouAlterar(ActionEvent event) { // altera os valores do objeto em questão #nn pode mudar cnpj#
-
+		
 		String CNPJ = txtCNPJ.getText();
 		String nome_do_gerente = txtGerente.getText();
 		String email = txtEmail.getText();
@@ -120,7 +122,7 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 	}
 
 	public void ClicouRemover(ActionEvent event) { // remove objetos da tabela caso o usuario confirme a opcao
-
+		try {
 		String CNPJ = txtCNPJ.getText();
 
 		for (int i = 0; i < Main.repositorio.getAgencias().size(); i++)
@@ -146,5 +148,8 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 				}
 
 			}
+		}catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(e);
+		}
 	}
 }

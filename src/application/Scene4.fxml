@@ -69,14 +69,15 @@
       <TableView fx:id="tbAgencias" layoutX="7.0" layoutY="63.0" onMouseClicked="#ClicouTbAgencia" prefHeight="442.0" prefWidth="791.0">
         <columns>
           <TableColumn fx:id="colCNPJ" prefWidth="83.19995880126953" text="CNPJ" />
-          <TableColumn fx:id="colGerente" prefWidth="200.00001525878906" text="Gerente" />
-            <TableColumn fx:id="colEmail" prefWidth="126.4000244140625" text="e-mail" />
-            <TableColumn fx:id="colEndereco" minWidth="0.0" prefWidth="379.20000000000005" text="Endereço">
+          <TableColumn fx:id="colGerente" prefWidth="144.79998779296875" text="Gerente" />
+            <TableColumn fx:id="colEmail" prefWidth="144.0" text="e-mail" />
+            <TableColumn fx:id="colEndereco" minWidth="0.0" prefWidth="311.99993896484375" text="Endereço">
                <columns>
-                  <TableColumn fx:id="colLogradouro" prefWidth="126.4000244140625" text="Logradouro" />
-                  <TableColumn fx:id="colNumero" prefWidth="126.4000244140625" text="numero" />
-                  <TableColumn fx:id="colCEP" prefWidth="126.4000244140625" text="CEP" />
+                  <TableColumn fx:id="colLogradouro" prefWidth="135.20001220703125" text="Logradouro" />
+                  <TableColumn fx:id="colNumero" prefWidth="56.79998779296875" text="numero" />
+                  <TableColumn fx:id="colCEP" prefWidth="128.800048828125" text="CEP" />
                </columns></TableColumn>
+            <TableColumn fx:id="colPais" prefWidth="107.2000732421875" text="País " />
         </columns>
       </TableView>
       <TextField fx:id="tfPesquisarAgencia" layoutX="262.0" layoutY="33.0" prefHeight="26.0" prefWidth="286.0" promptText="Pesquise uma agência pelo CNPJ..." />
