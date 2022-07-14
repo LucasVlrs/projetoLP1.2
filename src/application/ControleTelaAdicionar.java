@@ -19,11 +19,11 @@ public class ControleTelaAdicionar extends MenuBar implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		tfPais.setDisable(true);
+//		tfPais.setDisable(true);
 	}
 
 	@FXML
-	private TextField tfGerente, tfCNPJ, tfEmail, tfELogradouro, tfENumero, tfECEP, tfPais;
+	private TextField tfGerente, tfCNPJ, tfEmail, tfELogradouro, tfENumero, tfECEP;
 
 	public void ClickedConfirmar(ActionEvent event) { // botão de criar objeto
 
@@ -34,41 +34,49 @@ public class ControleTelaAdicionar extends MenuBar implements Initializable {
 		String logradouro = tfELogradouro.getText();
 		int numero = Integer.parseInt(tfENumero.getText());
 		String CEP = tfECEP.getText();
-		String pais = tfPais.getText();
+//		String pais = tfPais.getText();
+//
+//		if (cbInternacional.isSelected()) {
+//
+//			Internacional agenciaI = new Internacional(nome_do_gerente, CNPJ, email, new Endereco(logradouro, numero, CEP), pais);
+//
+//			Main.repositorio.adicionar(agenciaI);
 
-		if (cbInternacional.isSelected()) {
-			Internacional agencia = new Internacional(nome_do_gerente, CNPJ, email,
-					new Endereco(logradouro, numero, CEP), pais);
+//		} else {
+			
+			Nacional agenciaN = new Nacional(nome_do_gerente, CNPJ, email, new Endereco(logradouro, numero, CEP));
 
-			Main.repositorio.adicionar(agencia);
-
+			Main.repositorio.adicionar(agenciaN);
+			
+//		}
 			for (Agencia a : Main.repositorio.getAgencias())
 				System.out.println(a.toString());
-		} else {
-			Nacional agencia = new Nacional(nome_do_gerente, CNPJ, email, new Endereco(logradouro, numero, CEP));
-
-			Main.repositorio.adicionar(agencia);
-
-			for (Agencia a : Main.repositorio.getAgencias())
-				System.out.println(a.toString());
-		}
 
 		Alert alertInserido = new Alert(Alert.AlertType.INFORMATION);
 		alertInserido.setTitle("Cadastrado com sucesso");
 		alertInserido.setContentText("Nova agencia cadastrada!");
 		alertInserido.showAndWait();
+		
+		//Limpando os campos
+		tfGerente.setText("");
+		tfCNPJ.setText("");
+		tfEmail.setText("");
+		tfELogradouro.setText("");
+		tfENumero.setText("");
+		tfECEP.setText("");
+//		tfPais.setText("");
 
 		System.out.println("clicou botao adicionar");
 
 	}
 
-	@FXML
-	public void InternacionalCheckUncheck(ActionEvent e) {
-		if (cbInternacional.isSelected()) {
-			tfPais.setDisable(false);
-		} else {
-			tfPais.setDisable(true);
-		}
-	}
+//	@FXML
+//	public void InternacionalCheckUncheck(ActionEvent e) {
+//		if (cbInternacional.isSelected()) {
+//			tfPais.setDisable(false);
+//		} else {
+//			tfPais.setDisable(true);
+//		}
+//	}
 
 }

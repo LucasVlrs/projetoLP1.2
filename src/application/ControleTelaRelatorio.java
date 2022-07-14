@@ -1,6 +1,8 @@
 package application;
 
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -42,19 +44,19 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
+		
 	}
 
 	public void ClicouPesquisar(ActionEvent event) {
-		if(tfPesquisarAgencia.getText().equals("")) {
+		if (tfPesquisarAgencia.getText().equals("")) {
 			preencherTabela(Main.repositorio.getAgencias());
-		}else {
+		} else {
 			ArrayList<Agencia> pesq = new ArrayList<>();
-				for(Agencia a: Main.repositorio.getAgencias()) {
-					if( a.getCNPJ().equals(tfPesquisarAgencia.getText()))
-						pesq.add(a);
-				}
-				preencherTabela(pesq);
+			for (Agencia a : Main.repositorio.getAgencias()) {
+				if (a.getCNPJ().equals(tfPesquisarAgencia.getText()))
+					pesq.add(a);
+			}
+			preencherTabela(pesq);
 		}
 	}
 
@@ -65,7 +67,7 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 
 	private void preencherTabela(ArrayList<Agencia> armz) {
 		ObservableList<Agencia> data = FXCollections.observableArrayList(armz);
-
+		
 		// exibir dados de objetos na tabela
 		colGerente.setCellValueFactory(new PropertyValueFactory<>("nome_do_gerente"));
 		colCNPJ.setCellValueFactory(new PropertyValueFactory<>("CNPJ"));
@@ -75,8 +77,7 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 		colLogradouro.setCellValueFactory(dado -> new SimpleStringProperty(dado.getValue().getEndereco().getLogradouro()));
 		colNumero.setCellValueFactory(dado -> new SimpleStringProperty(String.valueOf(dado.getValue().getEndereco().getNumero())));
 		colCEP.setCellValueFactory(dado -> new SimpleStringProperty(dado.getValue().getEndereco().getCEP()));
-		
-		colPais.setCellValueFactory(new PropertyValueFactory<>("pais"));
+//		colPais.setCellValueFactory(new PropertyValueFactory<>("pais"));
 
 		tbAgencias.setItems(data);
 	}
@@ -95,9 +96,9 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 		txtCEP.setText((agencia.endereco.getCEP()));
 
 	}
-	
+
 	public void ClicouAlterar(ActionEvent event) { // altera os valores do objeto em questão #nn pode mudar cnpj#
-		
+
 		String CNPJ = txtCNPJ.getText();
 		String nome_do_gerente = txtGerente.getText();
 		String email = txtEmail.getText();
@@ -116,13 +117,11 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 				Main.repositorio.getAgencias().get(i).getEndereco().setCEP(CEP);
 
 				System.out.println("Alterando itens...");
-
 				break;
 			}
 	}
 
 	public void ClicouRemover(ActionEvent event) { // remove objetos da tabela caso o usuario confirme a opcao
-		try {
 		String CNPJ = txtCNPJ.getText();
 
 		for (int i = 0; i < Main.repositorio.getAgencias().size(); i++)
@@ -140,16 +139,10 @@ public class ControleTelaRelatorio extends MenuBar implements Initializable {
 					System.out.println("Agencia de CNPJ: " + CNPJ + " removida");
 					JOptionPane.showMessageDialog(null, "Agencia de CNPJ: " + CNPJ + " foi removida com Sucesso");
 					Main.repositorio.getAgencias().remove(i);
-				}
-
-				else {
+				} else {
 					JOptionPane.showMessageDialog(null, "Agencia de CNPJ: " + CNPJ + " não foi removida");
 					break;
 				}
-
 			}
-		}catch(ArrayIndexOutOfBoundsException e) {
-			System.out.println(e);
-		}
 	}
 }

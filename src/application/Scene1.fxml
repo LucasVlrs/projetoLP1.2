@@ -3,7 +3,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -85,9 +84,6 @@
                   <Image url="@Brasil%20Tour%20logo.png" />
                </image>
             </ImageView>
-            <CheckBox fx:id="cbInternacional" layoutX="204.0" layoutY="228.0" mnemonicParsing="false" onAction="#InternacionalCheckUncheck" text="Internacional" />
-            <TextField fx:id="tfPais" layoutX="204.0" layoutY="267.0" />
-            <Label layoutX="204.0" layoutY="246.0" text="País" />
          </children>
       </AnchorPane>
    </children>

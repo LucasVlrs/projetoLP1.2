@@ -6,12 +6,14 @@ public abstract class Agencia {
 	protected String CNPJ;
 	protected String email;
 	protected Endereco endereco;
+	
 
 	public Agencia(String nome_do_gerente, String CNPJ, String email, Endereco endereco) {
 		this.nome_do_gerente = nome_do_gerente;
 		this.CNPJ = CNPJ;
 		this.email = email;
 		this.endereco = endereco;
+		
 
 	}
 
